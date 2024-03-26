@@ -1,10 +1,9 @@
 import PokemonCard from "../components/PokemonCard";
 import "./App.css";
 
-
 const pokemonList = [
 	{
-		name: "bulbasaur",
+		name: "Bulbasaur",
 		imgSrc:
 			"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
 	},
@@ -14,9 +13,10 @@ const pokemonList = [
 ];
 
 function App() {
+
 	return (
 		<>
-			<PokemonCard  pokemon={pokemonList[0]}/>
+			<PokemonCard pokemon={pokemonList[0]}/>
 		</>
 	);
 }
