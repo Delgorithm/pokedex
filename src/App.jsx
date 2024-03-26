@@ -31,14 +31,17 @@ const pokemonList = [
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
 
+	let hasPrev = pokemonIndex > 0;
+	let hasNext = pokemonIndex < pokemonList.length - 1;
+
 	const handleDecrement = () => {
-		if (pokemonIndex > 0) {
+		if (hasPrev) {
 			setPokemonIndex(pokemonIndex - 1);
 		}
 	};
 
 	const handleIncrement = () => {
-		if (pokemonIndex < pokemonList.length - 1) {
+		if (hasNext) {
 			setPokemonIndex(pokemonIndex + 1);
 		}
 	};
@@ -48,8 +51,8 @@ function App() {
 		<>
 			<PokemonCard pokemon={pokemonList[pokemonIndex]}/>
 			<article>
-				<button onClick={handleDecrement}>Précédent</button>
-				<button onClick={handleIncrement}>Suivant</button>
+				<button onClick={handleDecrement} disabled={!hasPrev}>Précédent</button>
+				<button onClick={handleIncrement} disabled={!hasNext}>Suivant</button>
 			</article>
 		</>
 	);
