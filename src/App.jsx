@@ -7,50 +7,35 @@ const pokemonList = [
 	{
 		name: "bulbasaur",
 		imgSrc:
-		  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-	  },
-	  {
+			"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+	},
+	{
 		name: "charmander",
 		imgSrc:
-		  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-	  },
-	  {
+			"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+	},
+	{
 		name: "squirtle",
 		imgSrc:
-		  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-	  },
-	  {
+			"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+	},
+	{
 		name: "pikachu",
 		imgSrc:
-		  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-	  },
-	  {
+			"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+	},
+	{
 		name: "mew",
-	  },
-	];
+	},
+];
 
 function App() {
 	const [pokemonIndex, setPokemonIndex] = useState(0);
 
-	let hasPrev = pokemonIndex > 0;
-	let hasNext = pokemonIndex < pokemonList.length - 1;
-
-	const handleDecrement = () => {
-		if (hasPrev) {
-			setPokemonIndex(pokemonIndex - 1);
-		}
-	};
-
-	const handleIncrement = () => {
-		if (hasNext) {
-			setPokemonIndex(pokemonIndex + 1);
-		}
-	};
-
 	return (
 		<>
-			<PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-			<NavBar handleDecrement={handleDecrement} handleIncrement={handleIncrement} hasPrev={hasPrev} hasNext={hasNext}/>
+			<PokemonCard pokemon={pokemonList[pokemonIndex]} />
+			<NavBar pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} />
 		</>
 	);
 }

@@ -1,12 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const NavBar = (props) => {
-    return (
-        <>
-            <button onClick={props.handleDecrement} disabled={!props.hasPrev}>Précédent</button>
-            <button onClick={props.handleIncrement} disabled={!props.hasNext}>Précédent</button>
-        </>
-    )
-}
+const NavBar = ({ pokemonList, setPokemonIndex }) => {
 
-export default NavBar
+	const handleClick = (index) => {
+		setPokemonIndex(index)
+	}
+
+	return (
+		<>
+			{pokemonList.map((pokemon, index) => {
+				return (
+					<button onClick={() => handleClick(index)} key={pokemon.name}>
+						{pokemon.name}
+					</button>
+				);
+			})}
+		</>
+	);
+};
+
+export default NavBar;
