@@ -2,23 +2,23 @@ import React from "react";
 
 const NavBar = ({ pokemonList, setPokemonIndex }) => {
 
-	const handleClick = (index) => {
+	const handleClick = (index, pokemon) => {
 		setPokemonIndex(index)
-		if (index === 3) {
+		if (pokemon.name === "pikachu") {
 			alert('pika pikachu !!!');
 		}
 	}
 
 	return (
-		<>
+		<nav>
 			{pokemonList.map((pokemon, index) => {
 				return (
-					<button onClick={() => handleClick(index)} key={pokemon.name}>
+					<button onClick={() => handleClick(index, pokemon)} key={pokemon.name}>
 						{pokemon.name}
 					</button>
 				);
 			})}
-		</>
+		</nav>
 	);
 };
 
